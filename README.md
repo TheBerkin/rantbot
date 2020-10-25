@@ -24,9 +24,13 @@ Post a message with a fenced code block with the language ID `rantbot` and RantB
 Depending on the outcome, RantBot will rate the trigger message with one of the following emoji:
 
 |Emoji|Meaning|
-|-----|-------|
+|:---:|-------|
 |✅|Program ran successfully.|
 |❓|The program failed to build due to syntax error(s).|
 |❌|The program encountered a runtime error.|
 
 The bot will then reply with the results (or errors), tagging the user who sent the request.
+
+## Minimum Rust version
+
+The app was developed using the 1.47.0 toolchain but might compile under some older versions.
