@@ -41,15 +41,15 @@ fn run_rant(src: &str) -> Result<String, (char, String)> {
             let mut err_list = String::new();
             for (errno, error) in errors.iter().enumerate() {
                 err_list.push_str(
-                    &format!("**{}.** {} ({}) {}\n", 
+                    &format!("{}. ({}) {}: {}\n", 
                         errno + 1,
-                        error.code(), 
                         error.pos().map_or("0,0".to_owned(), |pos| format!("{},{}", pos.line(), pos.col())),
+                        error.code(), 
                         error.message()
                     )
                 );
             }
-            let errmsg = format!("**Build failed:**\n\n{}", &err_list);
+            let errmsg = format!("Build failed!\n\n```\n{}\n```", &err_list);
             Err((EMOJI_COMPILE_ERROR, errmsg))
         }
     }
