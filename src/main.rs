@@ -5,6 +5,8 @@ use rant::{Rant, RantOptions};
 use regex::Regex;
 use serenity::{Client, async_trait, client::EventHandler, model::{channel::Message}, prelude::*};
 
+const ENV_DISCORD_TOKEN: &str = "RANTBOT_TOKEN";
+
 const EMOJI_SUCCESS: char = '✅';
 const EMOJI_COMPILE_ERROR: char = '❓';
 const EMOJI_RUNTIME_ERROR: char = '❌';
@@ -85,9 +87,8 @@ impl EventHandler for Handler {
 
 #[tokio::main]
 async fn main() {
-    let token = env::var("DISCORD_TOKEN").expect("no client token found");
-
-    let mut client = Client::builder(&token)
+    let token = env::var(ENV_DISCORD_TOKEN).expect("no client token found");
+    let mut client = Client::builder(token.trim())
             .event_handler(Handler {
                 trigger_regex: Regex::new(r#"(?s)```rantbot\s+(.*)\s*```"#).unwrap()
             })

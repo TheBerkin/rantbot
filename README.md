@@ -14,7 +14,7 @@ This should produce an executable file in the `target` directory.
 
 ## Running
 
-1. Assign your bot's client secret to an environment variable called `DISCORD_TOKEN`.
+1. Assign your app's client secret to an environment variable called `RANTBOT_TOKEN`.
 2. Run the executable directly or run `cargo run`.
 
 ## Usage
