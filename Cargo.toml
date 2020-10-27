@@ -7,7 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-serenity = { verison = "0.9.0-rc.4", default-features = false, features = ["builder", "client", "gateway", "rustls_backend", "model"] }
+serenity = { version = "0.9.0-rc.4", default-features = false, features = ["builder", "client", "gateway", "rustls_backend", "model"] }
 rand = "0.7.3"
 rant = { git = "https://github.com/rant-lang/rant" }
 regex = "1.4.1"
