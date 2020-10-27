@@ -71,6 +71,7 @@ impl EventHandler for Handler {
             return
         }
         if let Some(caps) = self.trigger_regex.captures(&msg.content) {
+            ctx.http.broadcast_typing(msg.channel_id.0).await;
             if let Some(pgm_src) = caps.get(1) {
                 match run_rant(pgm_src.as_str()) {
                     Ok(output) => {
